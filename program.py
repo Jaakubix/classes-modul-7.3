@@ -8,18 +8,20 @@ class BaseContact:
         self.nrpryw = nrpryw
     def contact(self):
         print(f"Wybieram numer +48 {self.nrpryw} i dzwonię do {self.imie} {self.nazwisko}")
+    @property
     def label_length(self):
-        self.length = len(imie) + len(nazwisko)
-        print(self.length)
+        self.length = len(self.imie) + len(self.nazwisko)
+        return self.length
 class BusinessContact(BaseContact):
     def __init__(self,nrsluz,imie,nazwisko,mail):
         super().__init__(imie,nazwisko,mail)
         self.nrsluz = nrsluz
     def contact(self):
         print(f"Wybieram numer +48{self.nrsluz} i dzwonię do {self.imie} {self.nazwisko}")
+    @property
     def label_length(self):
-        self.length = len(imie) + len(nazwisko)
-        print(self.length)
+        self.length = len(self.imie) + len(self.nazwisko)
+        return self.length
 def create_contacts():
     x = int(input("Podaj rodzaj wizytowki 1-BaseContact  2-BusinessContact: "))
     y = int(input("Podaj ilosc danych, ktore maja zostac wygenerowane"))
